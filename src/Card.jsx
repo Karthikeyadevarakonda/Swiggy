@@ -1,5 +1,5 @@
 import React from 'react'
-import RestaurantContainer from './RestaurantContainer'
+
 
 const Card = ({obj}) => {
     return( 
