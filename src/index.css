@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
 
-.imageDiv{
-    box-shadow: inset 2px 2px 12px 3px rgba(0, 0, 0, 0.4);
+.highlighted{
+    background-color: #cce7ff; 
 }
