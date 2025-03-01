@@ -1,6 +1,5 @@
 
 
-
 const Shimmer = () => {
     return (
         <div className="Container flex flex-wrap w-[80%] m-auto gap-5 mt-20 ">

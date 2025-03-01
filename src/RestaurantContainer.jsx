@@ -1,5 +1,4 @@
 import { useState } from "react";
-import React from "react";
 import Card from "./Card";
 import Notfound from "./Notfound";
 import { BASE_URL } from "./Utils/Constants";
@@ -60,7 +59,7 @@ const RestaurantContainer = ({ data }) => {
 
   return (
     <>
-      <div className="Container flex flex-wrap w-[80%] m-auto gap-5 mt-5 md:mt-10 ">
+      <div className="Container flex flex-wrap w-[94%] sm:w-[80%] m-auto gap-1.5 sm:gap-5 mt-5 md:mt-10 ">
         <div className="w-full flex flex-col sm:flex-col md:flex-row gap-2 ">
           <button
             className="text-white p-2  rounded-lg font-bold bg-orange-500 h-10"

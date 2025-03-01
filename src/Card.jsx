@@ -1,4 +1,4 @@
-import React from "react";
+
 import { BASE_URL } from "./Utils/Constants";
 
 const Card = ({ obj }) => {
@@ -8,19 +8,19 @@ const Card = ({ obj }) => {
   return (
     <div
       key={obj.info.id}
-      className="card w-[250px] sm:w-[240px]  md:w-[320px] h-[300px] transition-transform duration-200 hover:scale-92"
+      className="card w-[49%] rounded-md shadow-xl sm:shadow-none sm:w-[48%] h-60 sm:h-74 md:w-[320px] md:h-[310px] transition-transform duration-200 hover:scale-92"
     >
-      <div className=" w-full h-[181px] relative ">
+      <div className="w-30 h-30 rounded top-3 sm:top-0 sm:rounded-none sm:w-full sm:h-[141px] md:h-[181px] relative m-auto">
         <img
-          className=" w-full h-full overflow-hidden object-cover rounded-2xl "
+          className="w-full h-full overflow-hidden object-cover rounded-2xl "
           src={BASE_URL + obj.info.cloudinaryImageId}
           alt="productimage"
         />
-        <p className="text-gray-100 text-lg tracking-wider absolute bottom-2 left-3 font-bold">
+        <p className="text-gray-100  sm:text-lg sm:tracking-wider absolute bottom-2 left-3 font-bold">
           {discountLabel + " " + FlatPrice}
         </p>
       </div>
-      <div className=" p-3 ">
+      <div className=" p-3 text-sm tracking-tight sm:text-lg sm:tracking-normal">
         <p className="font-bold truncate">{obj.info.name}</p>
         <p className="">
           {obj.info.avgRating} |{" "}
