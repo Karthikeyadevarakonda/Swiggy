@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Navbar = () => {
   return (
@@ -34,7 +35,10 @@ const Navbar = () => {
           {" "}
           <ul className="flex cursor-pointer justify-evenly">
             {" "}
-            <li className="">HOME</li> <li>CART</li> <li>CONTACT</li>{" "}
+           <Link to={"/home"}><li>HOME</li></Link> 
+           <Link to={"/about"}><li>About</li> </Link>
+           <Link to={"/contact"}><li>CONTACT</li></Link>
+             {" "}
           </ul>{" "}
         </div>
       </div>
