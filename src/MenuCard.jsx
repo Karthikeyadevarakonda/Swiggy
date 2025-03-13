@@ -64,11 +64,11 @@ const MenuCard = ({ obj, cardIndex }) => {
           </p>
         </div>
 
-        <div className="w-[25%]">
+        <div className="w-[25%] flex items-center">
           <img
             src={BASE_URL + obj.card.info?.imageId}
             alt=""
-            className="h-full w-[83%] m-auto rounded-2xl"
+            className="h-[83%] w-[73%] m-auto rounded-2xl"
           />
         </div>
       </div>

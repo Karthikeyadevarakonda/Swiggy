@@ -44,7 +44,5 @@ const myRouter = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById("root")).render(
-  
     <RouterProvider router={myRouter} />
- 
 );
