@@ -35,7 +35,7 @@ const Navbar = () => {
           {" "}
           <ul className="flex cursor-pointer justify-evenly">
             {" "}
-           <Link to={"/home"}><li>HOME</li></Link> 
+           <Link to={"/"}><li>HOME</li></Link> 
            <Link to={"/about"}><li>About</li> </Link>
            <Link to={"/contact"}><li>CONTACT</li></Link>
              {" "}

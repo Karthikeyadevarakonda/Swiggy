@@ -29,7 +29,7 @@ const Home = () => {
   useEffect(() => {
     setTimeout(() => {
       fetchedData();
-    }, 500);
+    });
   }, []);
 
   useEffect(() => {

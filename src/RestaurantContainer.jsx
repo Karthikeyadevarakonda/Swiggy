@@ -4,8 +4,6 @@ import Notfound from "./Notfound";
 import { BASE_URL } from "./Utils/Constants";
 import { Link } from "react-router";
 
-
-
 const RestaurantContainer = ({ data }) => {
   const [isTopRated, setIsTopRated] = useState(true);
   const [filteredList, setFilteredList] = useState(data);
@@ -62,7 +60,7 @@ const RestaurantContainer = ({ data }) => {
 
   return (
     <>
-      <div className="Container flex flex-wrap w-[94%] sm:w-[80%] m-auto gap-1.5 sm:gap-5 mt-5 md:mt-10 ">
+      <div className="Container flex flex-wrap w-[94%] sm:w-[80%] m-auto gap-1.5 sm:gap-5 mt-5 md:mt-10">
         <div className="w-full flex flex-col sm:flex-col md:flex-row gap-2 ">
           <button
             className="text-white p-2  rounded-lg font-bold bg-orange-500 h-10"
@@ -124,9 +122,11 @@ const RestaurantContainer = ({ data }) => {
           <Notfound />
         ) : (
           filteredList.map((obj) => {
-            return <Link to={"/home"} key={obj.info.id} >
-                       <Card obj={obj} />
-                   </Link>
+            return (
+              <Link to={"/restaurant/"+obj.info.id} key={obj.info.id}>
+                <Card obj={obj} />
+              </Link>
+            );
           })
         )}
       </div>

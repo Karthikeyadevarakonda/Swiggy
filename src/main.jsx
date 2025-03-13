@@ -1,62 +1,50 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import Home from './Home.jsx'
-import Navbar from './Navbar.jsx'
-import Contact from './Contact.jsx'
-import About from './About.jsx'
-
-import { BrowserRouter, Outlet, Route, Routes, useRoutes } from 'react-router'
-
-
-const MainLayout = () =>{
-   return(
-     <>
-     <Navbar/>
-     <Outlet/>
-     </>
-   )
-}
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import Home from "./Home.jsx";
+import Navbar from "./Navbar.jsx";
+import Contact from "./Contact.jsx";
+import About from "./About.jsx";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router";
+import RestaurantDetails from "./RestaurantDetails.jsx";
 
 
-const MyRounter = ()=>{
+const MainLayout = () => {
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+    </>
+  );
+};
 
- return( useRoutes([
+const myRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
       {
-       path:'/',
-       element:<Navbar/>,
-       children:[
-         {
-            path:'home',
-            element:<Home/>,
-         },
-         {
-            path:'about',
-            element:<About/>,
-         },
-         {
-            path:'contact',
-            element:<Contact/>,
-         }
-       ],
+        path: "/",
+        element: <Home />,
       },
-   ])
-  )
-}
-  
-  
+      {
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
+      },
+      {
+        path:"/restaurant/:id",
+        element:<RestaurantDetails/>
+      }
+    ],
+  },
+]);
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-   <BrowserRouter>
-   <Routes>
-     <Route path="/" element={<MainLayout />}>
-       <Route index element={<Home />} />
-       <Route path="home" element={<Home />} />
-       <Route path="about" element={<About />} />
-       <Route path="contact" element={<Contact />} />
-     </Route>
-   </Routes>
- </BrowserRouter>
- </StrictMode>
-)
+createRoot(document.getElementById("root")).render(
+  
+    <RouterProvider router={myRouter} />
+ 
+);
