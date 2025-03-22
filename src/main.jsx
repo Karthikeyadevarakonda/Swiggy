@@ -5,9 +5,11 @@ import Home from "./Home.jsx";
 import Navbar from "./Navbar.jsx";
 import Contact from "./Contact.jsx";
 import About from "./About.jsx";
+import Cart from "./Cart.jsx";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router";
 import RestaurantDetails from "./RestaurantDetails.jsx";
-
+import CartStore from "./Utils/CartStore.js";
+import { Provider } from "react-redux";
 
 const MainLayout = () => {
   return (
@@ -36,6 +38,10 @@ const myRouter = createBrowserRouter([
         element: <Contact />,
       },
       {
+        path: "cart",
+        element: <Cart/>,
+      },
+      {
         path:"/restaurant/:id",
         element:<RestaurantDetails/>
       }
@@ -44,5 +50,7 @@ const myRouter = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById("root")).render(
+    <Provider store={CartStore}>
     <RouterProvider router={myRouter} />
+     </Provider>
 );

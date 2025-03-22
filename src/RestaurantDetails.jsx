@@ -6,10 +6,11 @@ import RestaurantBannerDetails from "./RestaurantBannerDetails";
 
 function RestaurantDetails() {
   const { id } = useParams();
+  const [isOpen,setIsOpen] = useState("Recommended")
   
   const [menu, setMenu] = useState([]);
   const [MainData,setMainData] = useState(null);
-  console.log(MainData)
+  // console.log(MainData)
 
   async function fetchMenu() {
     let res = await fetch(MENU_URL + id);
@@ -40,10 +41,9 @@ function RestaurantDetails() {
   return (
     <div  className="w-[70%] m-auto">
        {MainData && <RestaurantBannerDetails MainData={MainData}/>}
-       {console.log(MainData)}
-      {menu.map(({ card }, index) => (
-        <div key={index}>
-          <BigCards card={card} />
+       {menu.map(({ card }, index) => (
+        <div key={index} className="border-b-20 border-gray-100 mb-2">
+          <BigCards card={card} isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
       ))}
     </div>

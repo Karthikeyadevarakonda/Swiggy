@@ -1,12 +1,17 @@
-import {
-  faStar,
-  faCircle,
-  faMedal,
-} from "@fortawesome/free-solid-svg-icons";
-import { BASE_URL } from "./Utils/Constants";
+import { faStar, faCircle, faMedal } from "@fortawesome/free-solid-svg-icons";
+import { BASE_URL, MENU_IMAGE_URL } from "./Utils/Constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useDispatch } from "react-redux";
+import { addItems } from "./Utils/CartSlice";
 
 const MenuCard = ({ obj, cardIndex }) => {
+  console.log(obj)
+  const dispatch = useDispatch();
+
+  function handleOnClickAdd(){
+    dispatch(addItems({ ...obj, count: 1, cardIndex }));
+  }
+
   return (
     <div key={cardIndex} className="m-4 ">
       <div className="w-full h-50 p-4 flex">
@@ -39,16 +44,7 @@ const MenuCard = ({ obj, cardIndex }) => {
             {obj.card.info.name}
           </h4>
           <p className="font-semibold">
-            {"₹" +
-              (obj.card.info.defaultPrice
-                ? parseFloat(obj.card.info.defaultPrice / 100)
-                    .toString()
-                    .replace(/\.0+$/, "")
-                : obj.card.info.price
-                ? parseFloat(obj.card.info.price / 100)
-                    .toString()
-                    .replace(/\.0+$/, "")
-                : "0")}
+            {"₹" + (obj.card.info.defaultPrice || obj.card.info.price) / 100}
           </p>
           {obj.card.info?.ratings?.aggregatedRating?.rating ? (
             <p>
@@ -64,12 +60,14 @@ const MenuCard = ({ obj, cardIndex }) => {
           </p>
         </div>
 
-        <div className="w-[25%] flex items-center">
+        <div className="w-[25%] flex items-center relative">
           <img
-            src={BASE_URL + obj.card.info?.imageId}
+            src={MENU_IMAGE_URL + obj.card.info?.imageId || BASE_URL + obj.card.info?.imageId }
             alt=""
             className="h-[83%] w-[73%] m-auto rounded-2xl"
           />
+          <button className="w-[52%] h-[34px] absolute bottom-0 left-13 rounded-lg bg-white font-bold text-green-600 shadow-lg"
+          onClick={handleOnClickAdd}>ADD</button> 
         </div>
       </div>
       <hr className="w-[100%] text-gray-400" />
