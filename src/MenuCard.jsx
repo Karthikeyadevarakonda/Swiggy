@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { addItems } from "./Utils/CartSlice";
 
 const MenuCard = ({ obj, cardIndex }) => {
-  console.log(obj)
+  
   const dispatch = useDispatch();
 
   function handleOnClickAdd(){

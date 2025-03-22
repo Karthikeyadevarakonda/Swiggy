@@ -1,42 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router";
 import BigCards from "./BigCards";
-import { MENU_URL } from "./Utils/Constants";
+
 import RestaurantBannerDetails from "./RestaurantBannerDetails";
+import useResaurantDetailsFectch from "./customHooks/useResaurantDetailsFectch";
 
 function RestaurantDetails() {
   const { id } = useParams();
   const [isOpen,setIsOpen] = useState("Recommended")
   
-  const [menu, setMenu] = useState([]);
-  const [MainData,setMainData] = useState(null);
-  // console.log(MainData)
-
-  async function fetchMenu() {
-    let res = await fetch(MENU_URL + id);
-    let jsonData = await res.json();
-
-    const originalData = jsonData.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards;
-    const maindata = jsonData.data.cards[2].card.card.info;
-    setMainData(maindata)
-    
-    let filteredMenuData = [];
-
-    originalData.forEach(({ card }) => {
-      if (card.card["@type"].includes("v2.ItemCategory")) {
-        filteredMenuData = [...filteredMenuData, card];
-      } else if (card.card["@type"].includes("v2.NestedItemCategory")) {
-        filteredMenuData = [...filteredMenuData, card];
-      }
-    });
-
-    setMenu(filteredMenuData); 
-
-  }
-
-  useEffect(() => {
-    fetchMenu();
-  }, [id]);
+  const {menu,MainData} = useResaurantDetailsFectch(id);
 
   return (
     <div  className="w-[70%] m-auto">
