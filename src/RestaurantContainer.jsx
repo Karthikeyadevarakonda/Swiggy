@@ -5,6 +5,7 @@ import { BASE_URL } from "./Utils/Constants";
 import { Link } from "react-router";
 
 const RestaurantContainer = ({ data }) => {
+  
   const [isTopRated, setIsTopRated] = useState(true);
   const [filteredList, setFilteredList] = useState(data);
   const [value, setValue] = useState("");
