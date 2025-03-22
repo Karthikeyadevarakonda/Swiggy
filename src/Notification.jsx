@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Not from "./assets/Not.svg";
 const Notification = () => {
   return (

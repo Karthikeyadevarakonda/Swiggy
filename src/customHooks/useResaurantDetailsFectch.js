@@ -1,11 +1,13 @@
 import { MENU_URL } from "../Utils/Constants";
 import { useState,useEffect } from "react";
+
 const useResaurantDetailsFectch = (id) => {
+
   const [menu, setMenu] = useState([]);
   const [MainData,setMainData] = useState(null);
 
-  useEffect(() => {
-    
+useEffect(() => { 
+
   async function fetchMenu() {
     let res = await fetch(MENU_URL + id);
     let jsonData = await res.json();
@@ -27,8 +29,9 @@ const useResaurantDetailsFectch = (id) => {
     setMenu(filteredMenuData); 
 
   }
-
+  
   fetchMenu();
+
   }, [id]);
 
   return {menu,MainData}

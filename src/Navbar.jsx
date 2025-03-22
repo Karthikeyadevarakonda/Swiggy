@@ -39,10 +39,10 @@ const Navbar = () => {
           {" "}
           <ul className="flex cursor-pointer justify-evenly">
             {" "}
-           <Link to={"/"}><li>HOME</li></Link> 
-           <Link to={"/about"}><li>About</li> </Link>
-           <Link to={"/contact"}><li>CONTACT</li></Link>
-           <Link to={"/cart"}><li>CART{items.length > 0 ? `(${items.length})` :""}</li></Link>
+           <Link to={"/"}><li><em>HOME</em></li></Link> 
+           <Link to={"/about"}><li><em>ABOUT</em></li></Link>
+           <Link to={"/contact"}><li><em>CONTACT</em></li></Link>
+           <Link to={"/cart"}><li><em>CART <sup>{items.length > 0 ? `(${items.length})` :""}</sup> </em></li></Link>
              {" "}
           </ul>{" "}
         </div>
