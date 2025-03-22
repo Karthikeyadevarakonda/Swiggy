@@ -3,7 +3,9 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router";
 
 const Navbar = () => {
+  
   const items = useSelector((state)=>state.cart.items)
+
   return (
     <div className="nav shadow">
       <div className="navbar flex items-center justify-between md:w-9/10 m-auto p-3">

@@ -19,17 +19,11 @@ const MenuCard = ({ obj, cardIndex }) => {
           <div className="flex items-center">
             {obj.card.info.isVeg === 1 ? (
               <span className="border-2 border-green-600 rounded-md p-2 flex items-center justify-center w-5 h-5">
-                <FontAwesomeIcon
-                  icon={faCircle}
-                  className="text-green-600 text-[9px]"
-                />{" "}
+                <FontAwesomeIcon icon={faCircle} className="text-green-600 text-[9px]" />{" "}
               </span>
             ) : (
               <span className="border-2 border-red-600 rounded-md p-2 flex items-center justify-center w-5 h-5">
-                <FontAwesomeIcon
-                  icon={faCircle}
-                  className="text-red-600 text-[9px]"
-                />
+                <FontAwesomeIcon icon={faCircle} className="text-red-600 text-[9px]"/>
               </span>
             )}
             <span className="text-red-500 pl-2 font-semibold">
