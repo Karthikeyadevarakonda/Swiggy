@@ -9,7 +9,7 @@ const Card = ({ obj }) => {
   return (
     <div
       key={obj.info.id}
-      className="card w-[49%] rounded-md shadow-xl sm:shadow-none sm:w-[48%] h-60 sm:h-74 md:w-[320px] md:h-[310px] transition-transform duration-200 hover:scale">
+      className="card w-[49%] rounded-md shadow-xl sm:shadow-none sm:w-[48%] h-60 sm:h-74 md:w-[320px] md:h-[310px] transition-transform duration-200 hover:scale-95">
       <div className="w-30 h-30 rounded top-3 sm:top-0 sm:rounded-none sm:w-full sm:h-[141px] md:h-[181px] relative m-auto">
         <img
           className="w-full h-full overflow-hidden object-cover rounded-2xl "

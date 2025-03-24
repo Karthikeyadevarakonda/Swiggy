@@ -7,3 +7,17 @@
 .bigCard{
     padding: 1rem;
 }
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #fafafa;
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: lightgray;
+}
