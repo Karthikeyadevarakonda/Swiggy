@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItems, removeItems } from "./Utils/CartSlice";
 
 const MenuCard = ({ obj, cardIndex }) => {
-  console.log(obj)
   const dispatch = useDispatch();
   const CartItems = useSelector((state)=>state.cart.items)
 
