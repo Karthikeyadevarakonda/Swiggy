@@ -29,14 +29,14 @@ const RestaurantContainer = ({ data }) => {
   return (
     <>
    
-      <div className="Container flex flex-wrap w-[94%] sm:w-[88%] m-auto gap-3 mt-2 md:mt-10">
-        <h1 className="font-bold text-2xl mb-3 text-[#444444]">Restaurants with online food delivery in Nellore</h1>
+   {data && <div className="Container flex flex-wrap w-[94%] sm:w-[88%] m-auto gap-3 mt-2 md:mt-10 mb-10">
+       <h1 className="font-bold text-2xl mb-3 text-[#444444]">Restaurants with online food delivery in Nellore</h1>
         <div className="w-full flex flex-col sm:flex-col md:flex-row gap-2 ">
           <FilterButton FilterByToprated={FilterByToprated} isTopRated={isTopRated}/>
           <SearchBar data={data} onsearch={onsearch} setFilteredList={setFilteredList}/>
         </div>
         <RestaurantList filteredList={filteredList}/>
-      </div>
+      </div>}
     </>
   );
 };

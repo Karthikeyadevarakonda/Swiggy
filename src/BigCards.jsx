@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 const BigCards = ({ card ,isOpen,setIsOpen }) => {
   const itemsList = [card];
-
+  console.log(card)
   return (
    <div>
       {itemsList.map((card, index) => ( "categories" in card ? 

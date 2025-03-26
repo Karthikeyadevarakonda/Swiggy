@@ -9,14 +9,15 @@ const Card = ({ obj }) => {
   return (
     <div
       key={obj.info.id}
-      className="card rounded-md shadow-xl sm:shadow-none w-[260px] h-[310px] transition-transform duration-200 hover:scale-95">
-      <div className="w-30 h-30 rounded top-3 sm:top-0 sm:rounded-none sm:w-full sm:h-[141px] md:h-[181px] relative m-auto">
+      className="card rounded-md shadow-xl sm:shadow-none w-[260px] h-[310px] transition-transform duration-200 hover:scale-95 ">
+      <div className="w-30 h-30 rounded top-3 sm:top-0 sm:rounded-none sm:w-full sm:h-[141px] md:h-[181px] relative m-auto ">
+      <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent rounded-b-2xl"></div>
         <img
           className="w-full h-full overflow-hidden object-cover rounded-2xl "
           src={BASE_URL + obj.info.cloudinaryImageId}
           alt="productimage"
         />
-        <p className="text-gray-100  sm:text-lg sm:tracking-wider absolute bottom-2 left-3 font-bold">
+        <p className="text-white sm:text-lg sm:tracking-wider absolute bottom-2 left-3 font-bold">
           {discountLabel + " " + FlatPrice}
         </p>
       </div>

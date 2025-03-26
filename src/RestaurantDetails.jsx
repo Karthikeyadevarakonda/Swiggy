@@ -16,6 +16,7 @@ function RestaurantDetails() {
   return (
     <div  className="w-[70%] m-auto">
        {MainData && <RestaurantBannerDetails MainData={MainData}/>}
+       {console.log(MainData)}
        {menu.map(({ card }, index) => (
         <div key={index} className="border-b-20 border-gray-100 mb-2">
           <BigCards card={card} isOpen={isOpen} setIsOpen={setIsOpen} />

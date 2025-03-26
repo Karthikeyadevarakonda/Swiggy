@@ -21,3 +21,6 @@
 .custom-scrollbar::-webkit-scrollbar-track {
     background: lightgray;
 }
+.discountText {
+    -webkit-text-stroke: 1px black; 
+  }
