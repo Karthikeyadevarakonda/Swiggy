@@ -6,7 +6,7 @@ const Shimmer = () => {
           {Array.from({ length: 20 }).map((_, index) => {
             return(
             <div
-              key={index} className="card w-[270px] h-[310px] animate-pulse rounded bg-gray-200">
+              key={index} className="card w-[260px] h-[310px] animate-pulse rounded bg-gray-200">
               <div className="w-full h-[181px] bg-gray-300 rounded-lg"></div>
               <div className=" p-3 space-y-2">
                 <p className="h-4 bg-gray-400 w-full rounded"></p>

@@ -1,16 +1,28 @@
-import { faStar, faCircle, faMedal } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faCircle, faMedal, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { BASE_URL, MENU_IMAGE_URL } from "./Utils/Constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useDispatch } from "react-redux";
-import { addItems } from "./Utils/CartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addItems, removeItems } from "./Utils/CartSlice";
 
 const MenuCard = ({ obj, cardIndex }) => {
   
   const dispatch = useDispatch();
+  const CartItems = useSelector((state)=>state.cart.items)
 
-  function handleOnClickAdd(){
-    dispatch(addItems({ ...obj, count: 1, cardIndex }));
+
+  const CartItem = CartItems.find((item) => item.card.info.id === obj.card.info.id);
+  const isItemInCart = !!CartItem;
+  const ItemCount = CartItem ? CartItem.count : 0;
+  
+  
+  function handleInc(){
+    dispatch(addItems({ ...obj, count: ItemCount+1}));
   }
+
+  function handleDec(){
+    ItemCount > 1 ? dispatch(addItems({ ...obj, count: ItemCount-1})) : dispatch(removeItems(obj.card.info.id));
+  }
+  
 
   return (
     <div key={cardIndex} className="m-4 ">
@@ -19,7 +31,7 @@ const MenuCard = ({ obj, cardIndex }) => {
           <div className="flex items-center">
             {obj.card.info.isVeg === 1 ? (
               <span className="border-2 border-green-600 rounded-md p-2 flex items-center justify-center w-5 h-5">
-                <FontAwesomeIcon icon={faCircle} className="text-green-600 text-[9px]" />{" "}
+                <FontAwesomeIcon icon={faCircle} className="text-green-600 text-[9px] " />{" "}
               </span>
             ) : (
               <span className="border-2 border-red-600 rounded-md p-2 flex items-center justify-center w-5 h-5">
@@ -51,6 +63,7 @@ const MenuCard = ({ obj, cardIndex }) => {
           )}
           <p className="line-clamp-2 text-stone-600 font-normal">
             {obj.card.info?.description}
+          
           </p>
         </div>
 
@@ -60,8 +73,14 @@ const MenuCard = ({ obj, cardIndex }) => {
             alt=""
             className="h-[83%] w-[73%] m-auto rounded-2xl"
           />
-          <button className="w-[52%] h-[34px] absolute bottom-0 left-13 rounded-lg bg-white font-bold text-green-600 shadow-lg"
-          onClick={handleOnClickAdd}>ADD</button> 
+          {isItemInCart ?
+           <div className="w-[52%] h-[34px] absolute bottom-0 left-13 rounded-lg bg-white font-bold shadow-lg flex items-center justify-center">
+           <button><FontAwesomeIcon icon={faMinus}  onClick={handleDec} className="text-red-600 px-2 text-lg mr-1.5"/></button>  
+           <span className="text-xl pb-1">{ItemCount}</span>
+           <button><FontAwesomeIcon icon={faPlus} onClick={handleInc}  className="text-green-600 px-2 text-lg ml-1.5 "/></button> 
+         </div> :
+          <button className={`w-[52%] h-[34px] absolute bottom-0 left-13 rounded-lg bg-white font-bold ${isItemInCart ? "text-red-700" :"text-green-600"} shadow-lg`}
+          onClick={handleInc}>ADD</button> }
         </div>
       </div>
       <hr className="w-[100%] text-gray-400" />
