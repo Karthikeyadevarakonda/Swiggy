@@ -21,7 +21,7 @@ function RestaurantDetails() {
           <BigCards card={card} isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
       ))}
-     {items.length > 0 && <h1 className="fixed bottom-0 bg-emerald-500 w-4/6 p-3 text-center text-white font-bold shadow-lg left-1/2 transform -translate-x-1/2">{items.length} ITEM{items.length > 1 ? "'S" : ""} - ADDED TO CART</h1>}
+     {items.length > 0 && <h1 className="fixed bottom-0 bg-emerald-500 w-4/6 p-2 text-center text-white font-bold shadow-lg left-1/2 transform -translate-x-1/2">{items.length} ITEM{items.length > 1 ? "'S" : ""} - ADDED TO CART</h1>}
     </div>
   );
 }
