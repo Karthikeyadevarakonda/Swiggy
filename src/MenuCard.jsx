@@ -3,7 +3,7 @@ import { BASE_URL, MENU_IMAGE_URL } from "./Utils/Constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
 import { addItems, clearCart, removeItems, setRestaurantData } from "./Utils/CartSlice";
-import { decrementItems } from "./Utils/CartSlice"; // Import decrementItems
+import { decrementItems } from "./Utils/CartSlice";
 
 const MenuCard = ({ obj, cardIndex, restaurant}) => {
   // console.log("inside menu",obj)
@@ -29,23 +29,21 @@ const MenuCard = ({ obj, cardIndex, restaurant}) => {
       return;
     }
   
-    // Get the restaurant ID of the first item in the cart (after fix in CartSlice.js)
     const existingCartRestaurantId = CartItems[0]?.restaurant?.id;
   
     console.log("EXISTING Restaurant ID in Cart:", existingCartRestaurantId);
   
-    // If the cart is empty, add the item directly and set the restaurant
+  
     if (CartItems.length === 0) {
       dispatch(setRestaurantData(restaurant));
       dispatch(addItems({ card: obj.card, restaurant }));
       return;
     }
   
-    // If the restaurant ID is the same, just increase quantity
     if (NewRestaurantId === existingCartRestaurantId) {
       dispatch(addItems({ card: obj.card, restaurant }));
     } else {
-      // Show warning only if trying to add from a different restaurant
+     
       const userConfirmed = window.confirm(
         `You're ordering from a different restaurant (${restaurant.name}).\nThis will clear your cart. Proceed?`
       );
@@ -65,9 +63,9 @@ const MenuCard = ({ obj, cardIndex, restaurant}) => {
 
   function handleDec() {
       if (ItemCount > 1) {
-          dispatch(decrementItems(obj.card.info.id)); // Correctly decrement count
+          dispatch(decrementItems(obj.card.info.id)); 
       } else {
-          dispatch(removeItems(obj.card.info.id)); // Remove item when count reaches 0
+          dispatch(removeItems(obj.card.info.id)); 
       }
   }
   

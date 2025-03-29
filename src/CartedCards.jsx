@@ -57,8 +57,6 @@ const CartedCards = ({obj, cardIndex, restaurant}) => {
       }
     }
     
-  
-  
     function handleDec() {
         if (ItemCount > 1) {
             dispatch(decrementItems(obj.card.info.id)); 
