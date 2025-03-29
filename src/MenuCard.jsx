@@ -2,24 +2,73 @@ import { faStar, faCircle, faMedal, faPlus, faMinus } from "@fortawesome/free-so
 import { BASE_URL, MENU_IMAGE_URL } from "./Utils/Constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
-import { addItems, removeItems } from "./Utils/CartSlice";
+import { addItems, clearCart, removeItems, setRestaurantData } from "./Utils/CartSlice";
+import { decrementItems } from "./Utils/CartSlice"; // Import decrementItems
 
-const MenuCard = ({ obj, cardIndex }) => {
+const MenuCard = ({ obj, cardIndex, restaurant}) => {
+  // console.log("inside menu",obj)
+  // console.log(restaurant)
   const dispatch = useDispatch();
   const CartItems = useSelector((state)=>state.cart.items)
+  const currentRestaurant = useSelector((state) => state.cart.restaurantData);
 
+  const NewRestaurantId = restaurant?.id;
+  const ExistedRestaurantId = currentRestaurant?.id;
+  const newItemRestaurantName = restaurant.name;
 
   const CartItem = CartItems.find((item) => item.card.info.id === obj.card.info.id);
   const isItemInCart = !!CartItem;
   const ItemCount = CartItem ? CartItem.count : 0;
+   
+  function handleInc() {
+    console.log("Current Restaurant Data:", currentRestaurant);
+    console.log("NEWLY ADDED Restaurant ID:", NewRestaurantId);
   
+    if (!restaurant) {
+      console.error("Restaurant data is missing!");
+      return;
+    }
   
-  function handleInc(){
-    dispatch(addItems({ ...obj, count: ItemCount+1}));
+    // Get the restaurant ID of the first item in the cart (after fix in CartSlice.js)
+    const existingCartRestaurantId = CartItems[0]?.restaurant?.id;
+  
+    console.log("EXISTING Restaurant ID in Cart:", existingCartRestaurantId);
+  
+    // If the cart is empty, add the item directly and set the restaurant
+    if (CartItems.length === 0) {
+      dispatch(setRestaurantData(restaurant));
+      dispatch(addItems({ card: obj.card, restaurant }));
+      return;
+    }
+  
+    // If the restaurant ID is the same, just increase quantity
+    if (NewRestaurantId === existingCartRestaurantId) {
+      dispatch(addItems({ card: obj.card, restaurant }));
+    } else {
+      // Show warning only if trying to add from a different restaurant
+      const userConfirmed = window.confirm(
+        `You're ordering from a different restaurant (${restaurant.name}).\nThis will clear your cart. Proceed?`
+      );
+  
+      if (userConfirmed) {
+        dispatch(clearCart());
+  
+        setTimeout(() => {
+          dispatch(setRestaurantData(restaurant));
+          dispatch(addItems({ card: obj.card, restaurant }));
+        }, 0);
+      }
+    }
   }
+  
 
-  function handleDec(){
-    ItemCount > 1 ? dispatch(addItems({ ...obj, count: ItemCount-1})) : dispatch(removeItems(obj.card.info.id));
+
+  function handleDec() {
+      if (ItemCount > 1) {
+          dispatch(decrementItems(obj.card.info.id)); // Correctly decrement count
+      } else {
+          dispatch(removeItems(obj.card.info.id)); // Remove item when count reaches 0
+      }
   }
   
 
