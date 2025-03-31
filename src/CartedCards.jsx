@@ -19,8 +19,8 @@ const CartedCards = ({obj, cardIndex, restaurant}) => {
     const ItemCount = CartItem ? CartItem.count : 0;
      
     function handleInc() {
-      console.log("Current Restaurant Data:", currentRestaurant);
-      console.log("NEWLY ADDED Restaurant ID:", NewRestaurantId);
+      // console.log("Current Restaurant Data:", currentRestaurant);
+      // console.log("NEWLY ADDED Restaurant ID:", NewRestaurantId);
     
       if (!restaurant) {
         console.error("Restaurant data is missing!");
@@ -29,7 +29,7 @@ const CartedCards = ({obj, cardIndex, restaurant}) => {
     
       const existingCartRestaurantId = CartItems[0]?.restaurant?.id;
     
-      console.log("EXISTING Restaurant ID in Cart:", existingCartRestaurantId);
+      // console.log("EXISTING Restaurant ID in Cart:", existingCartRestaurantId);
     
     
       if (CartItems.length === 0) {
@@ -90,9 +90,9 @@ const CartedCards = ({obj, cardIndex, restaurant}) => {
   
           <div className=" flex items-center ml-3 ">
              <div className=" h-[30px] border border-gray-400 bg-white font-bold  flex items-center justify-center">
-             <button><FontAwesomeIcon icon={faMinus}  onClick={handleDec} className="text-green-500 px-1 text-md mr-1.5"/></button>  
-             <span className="text-md pb-1 text-green-500">{ItemCount}</span>
-             <button><FontAwesomeIcon icon={faPlus} onClick={handleInc}  className="text-green-500 px-1 text-md ml-1.5 "/></button> 
+             <button><FontAwesomeIcon icon={faMinus}  onClick={handleDec} className="text-[#1BA672]  px-1 text-md mr-1.5"/></button>  
+             <span className="text-md pb-1 text-[#1BA672] ">{ItemCount}</span>
+             <button><FontAwesomeIcon icon={faPlus} onClick={handleInc}  className="text-[#1BA672]  px-1 text-md ml-1.5 "/></button> 
             </div> 
          </div>
 
