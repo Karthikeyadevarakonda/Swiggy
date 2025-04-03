@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+import { StrictMode, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import Home from "./Home.jsx";
@@ -10,12 +10,18 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router";
 import RestaurantDetails from "./RestaurantDetails.jsx";
 import CartStore from "./Utils/CartStore.js";
 import { Provider } from "react-redux";
-
+import TheMainPage from "./TheMainPage.jsx";
 const MainLayout = () => {
+  const [MainBtn,setMainBtn] = useState(false);
   return (
     <>
-      <Navbar />
-      <Outlet />
+    {MainBtn ?
+    <>
+    <Navbar />
+    <Outlet />
+    </>
+    :<TheMainPage setMainBtn={setMainBtn}/>
+    }
     </>
   );
 };
@@ -41,10 +47,6 @@ const myRouter = createBrowserRouter([
         path: "cart",
         element: <Cart/>,
       },
-      {
-        path:"/restaurant/:id",
-        element:<RestaurantDetails/>
-      }
     ],
   },
 ]);
