@@ -3,7 +3,9 @@ import Left from './assets/Left.png'
 import Right from './assets/Right.png'
 import Sushi from './assets/Sushi_replace.png'
 import Vegie from './assets/Veggies_new.png'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Swiggy_Logo from './assets/Swiggy_logo_bml6he.png'
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons"; 
 
 const TheMainPage = ({setMainBtn}) => {
   return (
@@ -13,8 +15,9 @@ const TheMainPage = ({setMainBtn}) => {
       <img src={Sushi} alt="" className='absolute w-41 top-17 right-0'/>
 
       <div className='absolute left-90 top-38 w-[580px] h-11 flex gap-4'>
+        <FontAwesomeIcon icon={faLocationDot} className='text-[#FF5200] absolute left-3 top-3 text-lg'/>
         <input type="text" placeholder='Nellore,AndraPradesh...' className='h-full outline-0 pl-8 bg-white rounded-xl w-[220px] truncate' />
-        <input type="text" placeholder='Search for restaurant, item or more....' className='h-full outline-0 pl-8 bg-white rounded-xl flex-1 truncate'/>
+        <input type="text" placeholder='Search for restaurant, item or more....' className='h-full outline-0 pl-4 bg-white rounded-xl flex-1 truncate'/>
       </div>
     
       <div className='flex w-4/5 h-77 absolute bottom-4 left-33'>
