@@ -47,8 +47,13 @@ const myRouter = createBrowserRouter([
         path: "cart",
         element: <Cart/>,
       },
+      {
+        path: "/restaurant/:id", 
+        element: <RestaurantDetails />,
+      },
     ],
   },
+  
 ]);
 
 createRoot(document.getElementById("root")).render(
