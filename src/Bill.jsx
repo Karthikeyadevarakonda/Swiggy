@@ -44,7 +44,7 @@ const Bill = () => {
           Unwell, or avoiding contact? Please select no-contact delivery. Partner will safely place the order outside your door (not for COD)</p>
         </div>
         <div className='my-3'> 
-        <h1 className='font-semibold border-b-2 w-9/10 m-auto pb-1.5 text-sm'>Bill Details</h1>
+        <h1 className='font-semibold border-b-2 border-gray-400 w-9/10 m-auto pb-1.5 text-sm'>Bill Details</h1>
         <h1 className='font-bold pl-5 py-4 flex items-center justify-between w-9/10'><span>TO PAY</span> <span>₹ {total} </span></h1>
         </div>
         </div>
