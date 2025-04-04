@@ -4,8 +4,7 @@ import EmptyCart from './EmptyCart';
 import { BASE_URL } from './Utils/Constants';
 import CartedCards from './CartedCards';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faLocationDot } from "@fortawesome/free-regular-svg-icons";
-import { faLocationDot,faUser,faWallet } from "@fortawesome/free-solid-svg-icons"; 
+import { faLocationDot,faQuoteLeft,faUser,faWallet } from "@fortawesome/free-solid-svg-icons"; 
 
 
 const Cart = () => {
@@ -23,7 +22,7 @@ const Cart = () => {
 
   <div className='bg-[#E9ECEE] p-5 flex '>
 
-    <div className=' flex-1/2 relative'>
+    <div className=' flex-1/2 relative h-[475px]'>
        <div className='flex flex-col justify-between h-full pl-16'>
         <div className='Box1 w-full h-48 bg-white px-10 py-5'>
           <div className=' w-full h-full '>
@@ -69,15 +68,15 @@ const Cart = () => {
        <div className='iconBorder w-14 h-[63%] border-r border-dashed absolute top-23 left-0'></div>
      </div>
    
-    <div className="w-2/7 m-auto shadow bg-white ml-5">
+    <div className="w-2/7 m-auto bg-white h-auto ml-5">
       {items.length === 0 ? (
         <EmptyCart />
       ) : (
         <div className=''>
           {/* {console.log("THERE WE GO",RestaurantData)} */}
           {RestaurantData ? (
-            <div>
-              <div className='flex gap-3 w-9/10 m-auto p-4'>
+            <div className=''>
+              <div className='flex gap-3 w-9/10 m-auto p-4  '>
                  <img src={BASE_URL+RestaurantData.cloudinaryImageId} alt="" className='w-15 h-15'/>
                  <div>
                  <h1 className='font-bold text-md'>{RestaurantData.name}</h1>
@@ -86,12 +85,25 @@ const Cart = () => {
                  </div>
              
               </div>
-            <div className='overflow-y-auto h-70 mb-4 custom-scrollbar'>
+            <div className='h-auto max-h-70 mb-4 custom-scrollbar overflow-y-auto '>
             {items.map((obj, cardIndex) => (
               <CartedCards obj={obj} restaurant={RestaurantData} cardIndex={cardIndex} key={cardIndex}/>
             ))}
             </div >
-            <h1 className='p-2 shadow-lg font-bold pl-5  h-20 flex items-center '>TOTAL PAYABLE : ₹ {total} /- </h1>
+            <div className='relative'>
+              <FontAwesomeIcon icon={faQuoteLeft} className='absolute left-8 top-4 text-sm'/>
+            <input type="text" className='bg-gray-100 truncate px-2 py-3 w-9/10 ml-4 pl-10 mb-5 text-sm font-semibold outline-0' placeholder='Any Suggestions? We will Pass it on...' />
+            </div>
+            <div className='border border-gray-500 w-9/10 m-auto py-1.5 pl-12 text-sm pr-8 relative'> 
+            <input type="checkbox" className='custom-checkbox border-[3px] accent-black' />
+            <span className='font-semibold'>Opt in for No-contact Delivery</span>
+              <p className='text-justify text-gray-600 font-[500]' >
+              Unwell, or avoiding contact? Please select no-contact delivery. Partner will safely place the order outside your door (not for COD)</p>
+            </div>
+            <div className='my-3'> 
+            <h1 className='font-semibold border-b-2 w-9/10 m-auto pb-1.5 text-sm'>Bill Details</h1>
+            <h1 className='font-bold pl-5 py-4 flex items-center justify-between w-9/10'><span>TO PAY</span> <span>₹ {total} </span></h1>
+            </div>
             </div>
           ) : (
             <p className="text-center text-gray-600">Restaurant data is missing.</p>

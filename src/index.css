@@ -24,3 +24,22 @@
 .discountText {
     -webkit-text-stroke: 1px black; 
   }
+
+.custom-checkbox {
+    /* appearance: none; */
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid rgb(118, 118, 118); 
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    position: absolute;
+    left: 15px;
+    top: 12px;
+  }
+  
+  .custom-checkbox:checked {
+    /* background-color: #000; */
+   
+  }
+  
