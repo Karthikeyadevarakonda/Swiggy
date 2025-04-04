@@ -71,11 +71,11 @@ const CartedCards = ({obj, cardIndex, restaurant}) => {
         
         <div>
               {obj.card.info.isVeg === 1 ? (
-                <span className="border-2 border-green-600 rounded-md p-1 flex items-center justify-center w-4 h-4 mr-2">
+                <span className="border-2 border-green-600  p-1 flex items-center justify-center w-4 h-4 mr-2">
                   <FontAwesomeIcon icon={faCircle} className="text-green-600 text-[6px] " />{" "}
                 </span>
               ) : (
-                <span className="border-2 border-red-600 rounded-md p-1 flex items-center justify-center w-4 h-4 mr-2">
+                <span className="border-2 border-red-600  p-1 flex items-center justify-center w-4 h-4 mr-2">
                   <FontAwesomeIcon icon={faCircle} className="text-red-600 text-[6px]"/>
                 </span>
               )}
