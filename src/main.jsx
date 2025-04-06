@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import Home from "./Home.jsx";
 import Navbar from "./Navbar.jsx";
-import Contact from "./Contact.jsx";
+// import Contact from "./Contact.jsx";
 import About from "./About.jsx";
 import Cart from "./Cart.jsx";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router";
@@ -39,10 +39,10 @@ const myRouter = createBrowserRouter([
         path: "about",
         element: <About />,
       },
-      {
-        path: "contact",
-        element: <Contact />,
-      },
+      // {
+      //   path: "contact",
+      //   element: <Contact />,
+      // },
       {
         path: "cart",
         element: <Cart/>,
