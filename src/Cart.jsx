@@ -8,7 +8,7 @@ const Cart = () => {
   const items = useSelector((state) => state.cart.items);
   return (
   items.length !== 0 ? (
-  <div className='bg-[#E9ECEE] p-5 flex '>
+  <div className='bg-[#E9ECEE] p-5 flex h-auto '>
         <LoginPageOnCart/>
         <Bill/>
   </div>):(
