@@ -1,7 +1,3 @@
-import React from 'react'
-import Group from './assets/Group.svg'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin, faFacebook, faTwitter, faInstagram, faPinterest } from "@fortawesome/free-brands-svg-icons";
 
 
 const Fotter = () => {
