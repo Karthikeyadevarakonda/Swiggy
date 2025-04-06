@@ -5,6 +5,7 @@ import { FETCH_URL } from "./Utils/Constants";
 import Notification from "./Notification";
 import RestaurantList from "./RestaurantList";
 import TopSlider from "./TopSlider";
+import Fotter from "./Fotter";
 const Home = () => {
   const [data, setData] = useState([]);
   const [status, setStatus] = useState(navigator.onLine);
@@ -53,7 +54,7 @@ const Home = () => {
       </div>}
    
       {status ? (loading ? ( <Shimmer/>) : (<RestaurantContainer data={data}/>) ) : ( <Notification/>)}
-     
+      <Fotter/>
     </>
   );
 };

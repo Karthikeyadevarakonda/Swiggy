@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Left from './assets/Left.png'
 import Right from './assets/Right.png'
 import Sushi from './assets/Sushi_replace.png'
@@ -6,9 +6,30 @@ import Vegie from './assets/Veggies_new.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Swiggy_Logo from './assets/Swiggy_logo_bml6he.png'
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons"; 
+import { FETCH_URL } from './Utils/Constants'
+import MainPageSlider from './MainPageSlider'
+import AppBanner from './assets/App_download_banner.png'
+import Fotter from './Fotter'
 
 const TheMainPage = ({setMainBtn}) => {
+const [sliderData,setSliderData] = useState([])
+
+async function fetchedData() {
+    try {
+      let FetchedData = await fetch(FETCH_URL);
+      console.log("THEUS ",FetchedData)
+      let JsonData = await FetchedData.json();
+      setSliderData(JsonData.data?.cards[0]?.card?.card?.imageGridCards?.info);
+    } catch (error) {
+      console.log("ERROR IN FETCHING IN CATCH");
+    } 
+  }
+fetchedData();
+
   return (
+  <div>
+
+ 
     <div className='bg-[#FF5200] w-full h-[530px] relative'>
       <img src={Swiggy_Logo} alt="" className='w-28 left-30 top-7 absolute' />
       <img src={Vegie} alt="" className='absolute w-41 top-17 left-0'/>
@@ -24,7 +45,12 @@ const TheMainPage = ({setMainBtn}) => {
         <div><img src={Left} onClick={()=>setMainBtn(true)} alt="" className='w-full h-full cursor-pointer' /></div>
         <div><img src={Right} alt="" className='w-full h-full '/></div>
       </div>
-     
+    </div>
+    <div className='w-full mt-20 mb-8'>{sliderData && <MainPageSlider sliderData={sliderData}/>}</div>
+    <div><img src={AppBanner} alt="" /></div>
+    <div>
+    <Fotter/>
+    </div>
     </div>
   )
 }

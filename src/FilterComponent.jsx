@@ -28,21 +28,21 @@ const FilterComponent = ({clickFilter,setClickFilter,SortBy,setSortBy}) => {
       <div>
         <h1 className="font-bold text-2xl text-gray-500 mb-4 border-b border-gray-500 pb-2">SORT BY </h1>
         <div className="mb-3 flex items-center">
-         <input type="radio" id="default" name="sort" className="mr-2 accent-orange-500 outline-0" value="default" onChange={(e)=>setTempSort(e.target.value)} checked={tempSort === "default"} />
+         <input type="radio" id="default" name="sort" className="mr-2 accent-black outline-0" value="default" onChange={(e)=>setTempSort(e.target.value)} checked={tempSort === "default"} />
          <label htmlFor="default" className="font-semibold text-lg text-gray-700">Default</label>
        </div>
         <div className="mb-3 flex items-center">
-          <input type="radio" id="rating" name="sort" className="mr-2 accent-orange-500 outline-0" value="rating" onChange={(e)=>setTempSort(e.target.value)} checked={tempSort === "rating"} />
+          <input type="radio" id="rating" name="sort" className="mr-2 accent-black outline-0 " value="rating" onChange={(e)=>setTempSort(e.target.value)} checked={tempSort === "rating"} />
           <label htmlFor="rating" className="font-semibold text-lg text-gray-700">Rating</label>
        </div>
 
        <div className="mb-3 flex items-center">
-         <input type="radio" id="delivery" name="sort" className="mr-2 accent-orange-500 outline-0" value="delivery" onChange={(e)=>setTempSort(e.target.value)} checked={tempSort === "delivery"}/>
+         <input type="radio" id="delivery" name="sort" className="mr-2 accent-black outline-0" value="delivery" onChange={(e)=>setTempSort(e.target.value)} checked={tempSort === "delivery"}/>
          <label htmlFor="delivery" className="font-semibold text-lg text-gray-700">Delivery Time</label>
        </div>
 
        <div className="mb-3 flex items-center">
-         <input type="radio" id="cost" name="sort" className="mr-2 accent-orange-500 outline-0" value="cost" onChange={(e)=>setTempSort(e.target.value)} checked={tempSort === "cost"}/>
+         <input type="radio" id="cost" name="sort" className="mr-2 accent-black outline-0" value="cost" onChange={(e)=>setTempSort(e.target.value)} checked={tempSort === "cost"}/>
          <label htmlFor="cost" className="font-semibold text-lg text-gray-700">cost</label>
        </div>
        
