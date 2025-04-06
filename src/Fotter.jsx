@@ -46,7 +46,7 @@ const Fotter = () => {
 
   <div className='w-full bg-[#F0F0F5] h-[460px] pt-10'>
 
-    <div className='w-5/7 border-b-1 border-b-gray-500 m-auto h-[79%] flex justify-between'>
+    <div className='w-5/7 m-auto h-[79%] flex justify-between border-b-1 border-b-gray-500 '>
 
       <div className='w-[30%] h-full'>
         <img src={Group} alt="" className='w-34' />
