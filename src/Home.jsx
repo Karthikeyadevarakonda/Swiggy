@@ -1,16 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy ,Suspense} from "react";
 import Shimmer from "./Shimmer";
-import RestaurantContainer from "./RestaurantContainer";
 import { FETCH_URL } from "./Utils/Constants";
 import Notification from "./Notification";
-import RestaurantList from "./RestaurantList";
 import TopSlider from "./TopSlider";
-import Fotter from "./Fotter";
+const RestaurantContainer = lazy(()=> import("./RestaurantContainer"));
+const LowerFotter = lazy(()=>import("./LowerFotter"));
+const MiddleFotter = lazy(()=>import("./MiddleFotter"));
+const RestaurantList = lazy(()=>import("./RestaurantList"))
+
 const Home = () => {
   const [data, setData] = useState([]);
   const [status, setStatus] = useState(navigator.onLine);
   const [loading, setLoading] = useState(true);
   const [sliderData,setSliderData] = useState([])
+
+  const Loader = () => <div className="text-center text-gray-400 py-4">Loading...</div>;
+
   async function fetchedData() {
     setLoading(true);
     try {
@@ -50,11 +55,26 @@ const Home = () => {
     {data.length > 0 && <div className="w-[88%] m-auto mt-10 p-1">
       <div className="mb-10"><TopSlider sliderData={sliderData}/></div>
       <div><h1 className="font-bold text-2xl text-[#444444] ">Top restaurant chains in Nellore</h1></div>
+      <Suspense fallback={<Shimmer/>}>
       <div className="custom-scrollbar gap-2 h-82 mt-8 m-auto flex overflow-x-auto"><RestaurantList filteredList={data}/></div> 
+      </Suspense>
       </div>}
    
-      {status ? (loading ? ( <Shimmer/>) : (<RestaurantContainer data={data}/>) ) : ( <Notification/>)}
-      <Fotter/>
+      {status ? (loading ? ( <Shimmer/>) : (
+        <Suspense fallback={<Shimmer/>}>
+        <RestaurantContainer data={data}/>
+        </Suspense>
+        ) ) : ( <Notification/>)}
+
+       <Suspense fallback={<Loader/>}>
+       <div className='pb-5 bg-[#F0F0F5]'>
+         <LowerFotter/>
+       </div>
+       </Suspense>
+       <Suspense fallback={<Loader/>}>
+       <MiddleFotter/>
+       </Suspense>
+  
     </>
   );
 };

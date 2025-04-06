@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { lazy, useState ,Suspense} from 'react'
 import Left from './assets/Left.png'
 import Right from './assets/Right.png'
 import Sushi from './assets/Sushi_replace.png'
@@ -7,12 +7,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Swiggy_Logo from './assets/Swiggy_logo_bml6he.png'
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons"; 
 import { FETCH_URL } from './Utils/Constants'
-import MainPageSlider from './MainPageSlider'
 import AppBanner from './assets/App_download_banner.png'
 import Fotter from './Fotter'
+import LowerFotter from './LowerFotter';
+import MiddleFotter from './MiddleFotter'
+const MainPageSlider = lazy(()=>import("./MainPageSlider"))
 
 const TheMainPage = ({setMainBtn}) => {
 const [sliderData,setSliderData] = useState([])
+
+
+
+const Loader = () => <div className="text-center text-gray-400 py-4">Loading...</div>;
 
 async function fetchedData() {
     try {
@@ -46,10 +52,21 @@ fetchedData();
         <div><img src={Right} alt="" className='w-full h-full '/></div>
       </div>
     </div>
-    <div className='w-full mt-20 mb-8'>{sliderData && <MainPageSlider sliderData={sliderData}/>}</div>
+    <Suspense fallback={<Loader/>}>
+    <div className='w-full mt-20 mb-8'>{sliderData && 
+     <MainPageSlider sliderData={sliderData}/>
+      }</div>
+      </Suspense>
+   
     <div><img src={AppBanner} alt="" /></div>
     <div>
+    
+  
     <Fotter/>
+    <MiddleFotter/>
+  <div className='pb-5 bg-[#F0F0F5]'>
+    <LowerFotter/>
+  </div>
     </div>
     </div>
   )
