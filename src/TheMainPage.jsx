@@ -36,21 +36,22 @@ fetchedData();
   <div>
 
  
-    <div className='bg-[#FF5200] w-full h-[530px] relative'>
+    <div className='bg-[#FF5200] w-full h-[530px] '>
       <img src={Swiggy_Logo} alt="" className='w-28 left-30 top-7 absolute' />
       <img src={Vegie} alt="" className='absolute w-41 top-17 left-0'/>
       <img src={Sushi} alt="" className='absolute w-41 top-17 right-0'/>
 
-      <div className='absolute left-90 top-38 w-[580px] h-11 flex gap-4'>
+      <div className='m-auto w-[580px] h-11 flex gap-4 translate-y-37'>
         <FontAwesomeIcon icon={faLocationDot} className='text-[#FF5200] absolute left-3 top-3 text-lg'/>
         <input type="text" placeholder='Nellore,AndraPradesh...' className='h-full outline-0 pl-8 bg-white rounded-xl w-[220px] truncate' />
         <input type="text" placeholder='Search for restaurant, item or more....' className='h-full outline-0 pl-4 bg-white rounded-xl flex-1 truncate'/>
       </div>
     
-      <div className='flex w-4/5 h-77 absolute bottom-4 left-33'>
+      <div className='flex w-4/5 h-77 m-auto translate-y-40'>
         <div><img src={Left} onClick={()=>setMainBtn(true)} alt="" className='w-full h-full cursor-pointer' /></div>
         <div><img src={Right} alt="" className='w-full h-full '/></div>
       </div>
+    
     </div>
     <Suspense fallback={<Loader/>}>
     <div className='w-full mt-20 mb-8'>{sliderData && 
