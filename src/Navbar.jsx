@@ -20,7 +20,7 @@ const Navbar = () => {
             <Link to={"/"}><li><em><FontAwesomeIcon icon={faHouse}/></em> HOME  </li></Link>
             <Link to={"/about"}><li><em><FontAwesomeIcon icon={faUser}/>  ABOUT </em></li></Link>
             {/* <Link to={"/contact"}><li><em>CONTACT</em></li></Link> */}
-            <Link to={"/cart"}><li><em> <FontAwesomeIcon icon={faCartShopping}/> CART <sup className="text-xs font-bold text-white bg-orange-500 rounded-full px-1.5 py-0.5 ml-1">{items.length > 0 ? `${items.length}` : ""}</sup></em></li></Link>
+            <Link to={"/cart"}><li><em> <FontAwesomeIcon icon={faCartShopping}/> CART <sup className="text-xs font-bold text-orange-400">{items.length > 0 ? `${items.length}` : ""}</sup></em></li></Link>
           </ul>
         </div>
       </div>
