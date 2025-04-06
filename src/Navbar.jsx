@@ -17,10 +17,10 @@ const Navbar = () => {
   
         <div className="w-[600px] sm:w-1/2">
          <ul className="flex cursor-pointer justify-evenly">
-            <Link to={"/"}><li><em><FontAwesomeIcon icon={faHouse}/></em> HOME  </li></Link>
-            <Link to={"/about"}><li><em><FontAwesomeIcon icon={faUser}/>  ABOUT </em></li></Link>
+            <Link to={"/"}><li><em ><FontAwesomeIcon icon={faHouse} className="text-orange-400"/>   HOME</em></li></Link>
+            <Link to={"/about"}><li><em><FontAwesomeIcon icon={faUser} className="text-blue-400"/>  ABOUT </em></li></Link>
             {/* <Link to={"/contact"}><li><em>CONTACT</em></li></Link> */}
-            <Link to={"/cart"}><li><em> <FontAwesomeIcon icon={faCartShopping}/> CART <sup className="text-xs font-bold text-orange-400">{items.length > 0 ? `${items.length}` : ""}</sup></em></li></Link>
+            <Link to={"/cart"}><li><em> <FontAwesomeIcon icon={faCartShopping} className="text-slate-400"/> CART <sup className="text-xs font-bold text-orange-400">{items.length > 0 ? `${items.length}` : ""}</sup></em></li></Link>
           </ul>
         </div>
       </div>
