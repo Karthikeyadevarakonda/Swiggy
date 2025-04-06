@@ -47,7 +47,7 @@ const RestaurantContainer = ({ data }) => {
 
   return (
     <>
-   {data && <div className="Container flex flex-wrap w-[94%] sm:w-[88%] m-auto gap-3 mt-2 md:mt-10 mb-10 border">
+   {data && <div className="Container flex flex-wrap w-8/9 gap-3 mt-2 md:mt-10 mb-10 m-auto">
        <h1 className="font-bold text-2xl mb-3 text-[#444444]">Restaurants with online food delivery in Nellore</h1>
        
        
