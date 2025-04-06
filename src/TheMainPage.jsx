@@ -47,7 +47,7 @@ fetchedData();
         <input type="text" placeholder='Search for restaurant, item or more....' className='h-full outline-0 pl-4 bg-white rounded-xl flex-1 truncate'/>
       </div>
     
-      <div className='flex w-4/5 h-77 m-auto border translate-y-40'>
+      <div className='flex w-4/5 h-77 m-auto border translate-y-40  justify-evenly'>
         <div><img src={Left} onClick={()=>setMainBtn(true)} alt="" className='w-full h-full cursor-pointer' /></div>
         <div><img src={Right} alt="" className='w-full h-full '/></div>
       </div>
